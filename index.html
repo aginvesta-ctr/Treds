@@ -29,7 +29,7 @@
         .chart-container { 
             position: relative; 
             width: 100%; 
-            height: 350px; 
+            height: 320px; 
             margin: auto; 
         }
 
@@ -133,13 +133,13 @@
             </div>
         </section>
 
-        <!-- REALITY CHECK: GOLD (REAlISTIC TRADINGVIEW CHART) -->
+        <!-- REALITY CHECK: GOLD (OPTIMIZED SCALE) -->
         <section class="p-6 mt-10">
             <div class="flex items-center gap-3 mb-6">
                 <div class="w-10 h-1 h-px bg-ag-orange"></div>
                 <h2 class="font-display font-bold text-xl uppercase tracking-tighter">Аналіз активу: Gold</h2>
             </div>
-            <div class="glass rounded-[2rem] p-4 mb-6 border-ag-orange/20 relative overflow-hidden">
+            <div class="glass rounded-[2rem] p-3 mb-6 border-ag-orange/20 relative overflow-hidden">
                 <div class="flex justify-between items-center mb-4 px-2">
                     <div>
                         <p class="text-[10px] text-ag-white/40 uppercase font-bold">Інструмент</p>
@@ -288,7 +288,7 @@
             const ctx = document.getElementById('goldChart').getContext('2d');
             
             const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(0, 'rgba(251, 101, 36, 0.5)');
+            gradient.addColorStop(0, 'rgba(251, 101, 36, 0.45)');
             gradient.addColorStop(0.6, 'rgba(251, 101, 36, 0.1)');
             gradient.addColorStop(1, 'rgba(251, 101, 36, 0)');
 
@@ -298,12 +298,13 @@
                     labels: ['Січ 25', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру', 'Січ 26'],
                     datasets: [{
                         label: 'XAU/USD',
+                        // РЕАЛІСТИЧНІ ЦІНИ (Старт з $2625 з імітацією волатильності)
                         data: [2625, 2710, 2680, 2840, 2810, 3050, 3380, 3250, 3750, 4120, 4390, 4280, 4605],
                         borderColor: '#FB6524',
-                        borderWidth: 3,
+                        borderWidth: 2.5,
                         pointBackgroundColor: '#FB6524',
                         pointBorderColor: '#FFFFFF',
-                        pointBorderWidth: 1.5,
+                        pointBorderWidth: 1,
                         pointRadius: 1,
                         pointHoverRadius: 6,
                         fill: true,
@@ -316,7 +317,10 @@
                     maintainAspectRatio: false,
                     layout: {
                         padding: {
-                            right: 45 // ДОДАНО ВІДСТУП ПРАВОРУЧ, ЩОБ МІТКИ ЦІН НЕ ОБРІЗАЛИСЯ
+                            right: 32, // ОПТИМІЗОВАНО: достатньо для $4,000 без великих пустот
+                            left: 8,
+                            top: 5,
+                            bottom: 5
                         }
                     },
                     plugins: {
@@ -340,7 +344,9 @@
                             ticks: { 
                                 color: '#474747', 
                                 font: { size: 8, family: 'Montserrat' },
-                                padding: 5
+                                padding: 5,
+                                autoSkip: true,
+                                maxRotation: 0
                             }
                         },
                         y: {
@@ -348,7 +354,7 @@
                             grid: { display: true, color: 'rgba(255, 255, 255, 0.05)' },
                             ticks: { 
                                 color: '#FB6524', 
-                                font: { size: 9, family: 'Unbounded', weight: 'bold' }, // ТРОХИ ЗМЕНШЕНО ШРИФТ ДЛЯ МОБІЛЬНИХ
+                                font: { size: 9, family: 'Unbounded', weight: 'bold' },
                                 callback: (value) => `$${value}`,
                                 padding: 8
                             },
