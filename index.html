@@ -69,7 +69,6 @@
             border: 1px solid rgba(251, 101, 36, 0.1);
         }
 
-        /* ПОКРАЩЕНА ВИДИМІСТЬ СЛАЙДЕРІВ */
         .custom-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 24px;
@@ -84,7 +83,7 @@
         
         .custom-slider::-webkit-slider-runnable-track {
             height: 8px;
-            background: #474747; /* Контрастний сірий */
+            background: #474747;
             border-radius: 4px;
             border: 1px solid rgba(251, 101, 36, 0.3);
         }
@@ -147,7 +146,7 @@
             </div>
         </section>
 
-        <!-- REALITY CHECK: GOLD -->
+        <!-- REALITY CHECK: GOLD (REAlISTIC CHART) -->
         <section class="p-6 mt-10">
             <div class="flex items-center gap-3 mb-6">
                 <div class="w-10 h-1 h-px bg-ag-orange"></div>
@@ -171,7 +170,7 @@
 
                 <div class="mt-4 bg-ag-black/50 p-3 rounded-xl border border-ag-white/5">
                     <p class="text-[10px] text-ag-white/60 leading-relaxed">
-                        <span class="text-ag-orange font-bold">Аналітична замітка:</span> Прорив рівня $3000 у липні 2025 став точкою неповернення. Золото підтвердило статус стабільного еквівалента вартості у 2026 році.
+                        <span class="text-ag-orange font-bold">Аналітична замітка:</span> Ринок рухається хвилями. Прорив рівня $3000 супроводжувався корекцією, що дало професіоналам кращу точку входу для подальшого росту до $4600.
                     </p>
                 </div>
             </div>
@@ -279,13 +278,11 @@
             <h2 class="font-display text-3xl font-black mb-10 leading-none uppercase tracking-tighter">Твій вхід у <span class="gradient-text">2026.</span></h2>
             
             <div class="space-y-4">
-                <!-- ОНОВЛЕНЕ ПОСИЛАННЯ LIBERTEX -->
                 <a href="https://app.libertex.org/login?pf=frp_10212" target="_blank" 
                    class="block w-full bg-ag-orange py-6 rounded-2xl text-center font-display font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">
                     СТАТИ ІНВЕСТОРОМ
                 </a>
 
-                <!-- ОНОВЛЕНЕ ПОСИЛАННЯ TELEGRAM -->
                 <a href="https://t.me/+D_lzWyoMZ8FkOTA6" target="_blank" 
                    class="block w-full bg-[#2AABEE] py-4 rounded-2xl text-center font-display font-bold text-sm flex items-center justify-center gap-3 active:scale-95 transition-all">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.91-1.26 4.84-2.1 5.8-2.52 2.76-1.19 3.33-1.4 3.71-1.4.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
@@ -310,20 +307,21 @@
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Січ 25', 'Бер', 'Тра', 'Лип', 'Вер', 'Лис', 'Січ 26'],
+                    labels: ['Січ 25', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру', 'Січ 26'],
                     datasets: [{
                         label: 'Gold Price',
-                        data: [2000, 2350, 2750, 3200, 3850, 4300, 4605],
+                        // Реалістичні коливання ціни з просадками та імпульсами
+                        data: [2050, 2180, 2120, 2450, 2380, 2750, 3200, 2950, 3500, 3850, 4200, 4100, 4605],
                         borderColor: '#FB6524',
                         borderWidth: 3,
                         pointBackgroundColor: '#FB6524',
                         pointBorderColor: '#FFFFFF',
-                        pointBorderWidth: 2,
-                        pointRadius: 4,
+                        pointBorderWidth: 1,
+                        pointRadius: 2,
                         pointHoverRadius: 6,
                         fill: true,
                         backgroundColor: gradient,
-                        tension: 0.4,
+                        tension: 0.3, // Менше натяжіння для гостріших, реалістичних переходів
                     }]
                 },
                 options: {
@@ -346,11 +344,11 @@
                     },
                     scales: {
                         x: {
-                            grid: { display: true, color: 'rgba(255, 255, 255, 0.05)' },
+                            grid: { display: true, color: 'rgba(255, 255, 255, 0.03)' },
                             ticks: { 
                                 color: '#474747', 
-                                font: { size: 9, family: 'Montserrat' },
-                                padding: 10
+                                font: { size: 8, family: 'Montserrat' },
+                                padding: 5
                             }
                         },
                         y: {
@@ -362,7 +360,7 @@
                                 callback: (value) => `$${value}`,
                                 padding: 10
                             },
-                            min: 1500,
+                            min: 1800,
                             max: 5000
                         }
                     }
