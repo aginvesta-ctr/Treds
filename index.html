@@ -133,7 +133,7 @@
             </div>
         </section>
 
-        <!-- REALITY CHECK: GOLD -->
+        <!-- REALITY CHECK: GOLD (REAlISTIC TRADINGVIEW CHART) -->
         <section class="p-6 mt-10">
             <div class="flex items-center gap-3 mb-6">
                 <div class="w-10 h-1 h-px bg-ag-orange"></div>
@@ -265,7 +265,6 @@
             <h2 class="font-display text-3xl font-black mb-10 leading-none uppercase tracking-tighter">Твій вхід у <span class="gradient-text">2026.</span></h2>
             
             <div class="space-y-4">
-                <!-- ОНОВЛЕНА ПОМАРАНЧЕВА КНОПКА -->
                 <a href="https://app.libertex.org/login?pf=frp_10212" target="_blank" 
                    class="block w-full bg-[#FB6524] py-6 rounded-2xl text-center font-display font-black text-lg shadow-[0_10px_30px_rgba(251,101,36,0.5)] hover:brightness-110 active:scale-95 transition-all text-white">
                     СТАТИ ІНВЕСТОРОМ
@@ -299,7 +298,6 @@
                     labels: ['Січ 25', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру', 'Січ 26'],
                     datasets: [{
                         label: 'XAU/USD',
-                        // РЕАЛІСТИЧНІ ЦІНИ (Старт з $2625 з імітацією волатильності)
                         data: [2625, 2710, 2680, 2840, 2810, 3050, 3380, 3250, 3750, 4120, 4390, 4280, 4605],
                         borderColor: '#FB6524',
                         borderWidth: 3,
@@ -316,6 +314,11 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            right: 45 // ДОДАНО ВІДСТУП ПРАВОРУЧ, ЩОБ МІТКИ ЦІН НЕ ОБРІЗАЛИСЯ
+                        }
+                    },
                     plugins: {
                         legend: { display: false },
                         tooltip: {
@@ -345,9 +348,9 @@
                             grid: { display: true, color: 'rgba(255, 255, 255, 0.05)' },
                             ticks: { 
                                 color: '#FB6524', 
-                                font: { size: 10, family: 'Unbounded', weight: 'bold' },
+                                font: { size: 9, family: 'Unbounded', weight: 'bold' }, // ТРОХИ ЗМЕНШЕНО ШРИФТ ДЛЯ МОБІЛЬНИХ
                                 callback: (value) => `$${value}`,
-                                padding: 10
+                                padding: 8
                             },
                             min: 2400,
                             max: 5000
